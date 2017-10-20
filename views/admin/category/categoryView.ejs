@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Admin Panel</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <script src="jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/admin">Admin Panel</a>
+    </div>
+    <ul class="nav navbar-nav">
+
+      <li><a href="/customer">Home</a></li>
+
+      <li><a href="/admin">Admin Home</a></li>
+
+       <li class="active"><a href="/admin/category">Category Panel</a></li>
+
+       <li><a href="/admin/product">Product Panel</a></li>
+
+       <li><a href="/admin/order">Order Panel</a></li>
+
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container-fluid">
+
+<div class="form-group">
+<form method="post">
+  <label>Category Name</label><br>
+  <input type="text" class="form-control" name="sname" required><br>
+  <input type="submit" class="btn btn-success btn-block" value="Search">
+</form>
+</div>
+
+<p><%- searchResult %></p> 
+
+<a href="/admin/category/create"><b>Create New Category</b></a> <br><br>
+
+<div class="table-responsive">      
+<table border="1" class="table">
+    <tr>
+      <th>Category Name</th>
+      <th>Parent Category</th>
+      <th>Total Products</th>
+      <th>Options</th>
+    </tr>
+    <% for(var i = 0; i < categorys.length; i++) { %>
+    <tr>
+      <td><%= categorys[i].name %></td>
+      <td><%= categorys[i].parent %></td>
+      <td><%= categorys[i].count %></td>
+      <td><a href="/admin/category/edit/<%= categorys[i].id %>">Edit</a> | <a href="/admin/category/delete/<%= categorys[i].id %>">Delete</a></td>
+    </tr>
+    <% } %>
+  </table>
+ </div> 
+
+</div>
+
+</body>
+</html>

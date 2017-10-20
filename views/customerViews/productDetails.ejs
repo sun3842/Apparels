@@ -1,0 +1,95 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<title>Apparels</title>
+</head>
+<body>
+	<table>
+		<tr>
+		<tr><h2>Apparels</h2></tr>
+		<tr><a href="/user/login">My Account</a></tr>
+		<tr><a href="/customer/chartList/<%= customer %>">Chart(<%= chart %>)</a></tr>
+	</table></br>
+	<table>
+		<tr border="1px">
+			<td><a href="#">Home</a></td>
+			<td><a href="#">Mobile&Tabltes</a></td>
+			<td><a href="#">Electronics</a></td>
+			<td><a href="#">Lyfestule&Entertainment</a></td>
+			<td><a href="#">Cloth</a></td>
+		</tr>
+	</table>
+
+	<h2><%= productDetails.name %></h2>
+	<img src="<%= productDetails.image1 %>" width="200" height="140">
+	<br>
+	<%= message %>
+	<form method="post">
+				<input type="hidden" name="productName" value="<%= productDetails.name %>" />
+				<input type="hidden" name="unitPrice" value="<%= productDetails.price %>" />
+				<input type="text" name="quantity" placeholder="add quantity" />
+				<input type="submit" value="Add To Chart" /><br>
+				<input type="hidden" name="available" value="<%= productDetails.quantity %>" />
+				<input type="hidden" name="sku" value="<%= productDetails.sku %>" />
+	</form>
+	<br>
+	Product Price(Per Unit):<%= productDetails.price %> <br>
+	Available Quantity:<%= productDetails.quantity %>
+	<br>
+	<h2>Details</h2>
+	<i><%= productDetails.description %></i>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Customer Panel</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <script src="jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Apparels</a>
+    </div>
+    <ul class="nav navbar-nav">
+
+      <li><a href="/customer/<%= customer %>">Home</a></li>
+
+       <li><a href="/customer/chartList/<%= customer %>">Cart</a></li>
+
+    </ul>
+	
+  </div>
+</nav>
+
+<div class="container">
+
+    <h2 class="text-warning" align="center">Product Details</h2> <br>
+	<img class="img-rounded" class="img-responsive" style="margin: 0 auto; display: block;" src="<%= productDetails.image1 %>" width="20%" height="20%" ><br>
+	<p align="center" class="text-danger"><b>Product Name : </b><span class="text-success"><%= productDetails.name %></span></p>
+	<p align="center" class="text-danger"><b>Product Price(Per Unit) : </b><span class="text-success"><%= productDetails.price %> Tk</span></p>
+	<p align="center" class="text-danger"><b>Available Quantity : </b><span class="text-success"><%= productDetails.quantity %></span></p>
+	<p align="center" class="text-danger"><b>Product Details : </b><span class="text-success"><%= productDetails.description %></span></p>
+	<div class="form-group" align="center">
+	<p align="center" class="bg-danger"><%= message %></p>
+	<form method="post">
+				<input type="hidden" name="productName" value="<%= productDetails.name %>" />
+				<input type="hidden" name="unitPrice" value="<%= productDetails.price %>" />
+				<input type="number"  name="quantity" placeholder="add quantity" required /><br><br>
+				<input type="submit" class="btn btn-success" value="Add To Cart" />
+				<input type="hidden" name="available" value="<%= productDetails.quantity %>" />
+				<input type="hidden" name="sku" value="<%= productDetails.sku %>" />
+	</form>
+	</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Registration</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/customer">Apparels</a>
+    </div>
+    <ul class="nav navbar-nav">
+
+      <li><a href="/customer">Home</a></li>
+
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+	<h2 align="center">Registration</h2>
+
+	<ul class="list-group">
+	<% errors.forEach(function(err){ %>
+		<li class="list-group-item list-group-item-danger"><%= err.msg %></li>
+	<% }) %>
+	</ul>
+
+	<p class="bg-danger"><b><%= error %></b></p>
+
+<div class="form-group">
+
+	<form method="post">
+
+		<label>User Name</label><br>
+		<input type="text" class="form-control" name="uname"><br>
+
+		<label>User Email</label><br>
+		<input type="email" class="form-control" name="uemail"><br>
+
+		<label>Password</label><br>
+		<input type="password" class="form-control" name="upass"><br>
+
+		<input type="hidden" name="urole" value="user">
+
+                <input type="submit" class="btn btn-success btn-block" value="Register">
+
+	</form>	<br/>
+
+	</div>
+
+	<p> Already have an account !!! <a href="/login">Login Now</a> </p>
+
+	<script type="text/javascript" src="jquery.js"></script>
+</div>
+</body>
+
+</html>

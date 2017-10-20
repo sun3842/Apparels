@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Admin Panel</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <script src="jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/admin">Admin Panel</a>
+    </div>
+    <ul class="nav navbar-nav">
+
+      <li><a href="/customer">Home</a></li>
+
+      <li><a href="/admin">Admin Home</a></li>
+
+       <li><a href="/admin/category">Category Panel</a></li>
+
+       <li class="active"><a href="/admin/product">Product Panel</a></li>
+
+       <li><a href="/admin/order">Order Panel</a></li>
+
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
+    </ul>
+  </div>
+</nav>
+  
+<div class="container-fluid">
+
+<div class="form-group">
+<form method="post">
+  <label>Product Name</label><br>
+  <input type="text" class="form-control" name="sname" required><br>
+  <input type="submit" class="btn btn-success btn-block" value="Search">
+</form><br>
+</div>
+
+<p><%- searchResult %></p> 
+
+<a href="/admin/product/create"><b>Create New Product</b></a> <br><br>
+
+<div class="table-responsive"> 
+<table border="1" class="table">
+    <tr>
+        <th>Product Image</th>
+      <th>Product Name</th>
+      <th>Product SKU</th>
+      <th>Product Price</th>
+      <th>Product Quantity</th>
+      <th>Product Category</th>
+      <th>Parent Category</th>
+      <th>Options</th>
+    </tr>
+    <% for(var i = 0; i < products.length , i < product.length; i++) { %>
+    <tr>
+      <td><img src="<%= products[i].image1 %>" width="100" height="70"></td>
+      <td><%= products[i].name %></td>
+      <td><%= products[i].sku %></td>
+      <td><%= products[i].price %></td>
+      <td><%= products[i].quantity %></td>
+      <td><%= products[i].category1 %></td>
+      <td><%= product[i].parent %></td>
+      <td><a href="/admin/product/edit/<%= products[i].id %>">Edit</a> | <a href="/admin/product/delete/<%= products[i].id %>">Delete</a></td>
+    </tr>
+    <% } %>
+  </table> 
+  </div>
+
+</div>
+
+</body>
+</html>

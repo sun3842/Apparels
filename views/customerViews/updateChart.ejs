@@ -1,0 +1,95 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<table>
+		<tr>
+		<tr><h2>Apparels</h2></tr>
+		<tr><a href="/user/login">My Account</a></tr>
+	</table></br>
+	<form method="post">
+	<td><input type="hidden" name="ChartId" value="<%= chartProduct.id %>"/></td>
+		<table>
+			<tr>
+				<td>Product Name</td>
+				<td><input type="text" name="productName" value="<%= chartProduct.productName %>" readonly/></td>
+			</tr>
+			<tr>
+				<td>Price</td>
+				<td><input type="text" name="Price"  value="<%= chartProduct.totalPrice %>" readonly/></td>
+			</tr>
+			<tr>
+				<td>Quantity</td>
+				<td><input type="text" name="Quantity" value="<%= chartProduct.quantity %>" /></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" value="Update" /></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Customer Panel</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Apparels</a>
+    </div>
+    <ul class="nav navbar-nav">
+
+        <li><a href="/customer/<%= customer %>">Home</a></li>
+
+       <li><a href="/customer/chartList/<%= customer %>">Cart</a></li>
+
+    </ul>
+	
+  </div>
+</nav>
+
+<div class="container">
+
+<h2 align="center" class="text-danger">Update Cart</h2><br>
+
+<div class="form-group">
+
+		<form method="post">
+	<td><input type="hidden" name="ChartId" value="<%= chartProduct.id %>"/></td>
+		<table class="table">
+			<tr>
+				<td>Product Name</td>
+				<td><input type="text" class="form-control" name="productName" value="<%= chartProduct.productName %>" readonly/></td>
+			</tr>
+			<tr>
+				<td>Price</td>
+				<td><input type="text" class="form-control" name="Price"  value="<%= chartProduct.totalPrice %>" readonly/></td>
+			</tr>
+			<tr>
+				<td>Quantity</td>
+				<td><input type="text" class="form-control" name="Quantity" value="<%= chartProduct.quantity %>" /></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" class="btn btn-success btn-block" value="Update" /></td>
+			</tr>
+		</table>
+	</form>
+<p class="bg-danger"><%= message %></p>
+</div>
+
+</div>
+
+</body>
+</html>

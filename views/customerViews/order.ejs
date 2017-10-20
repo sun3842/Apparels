@@ -1,0 +1,75 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<title>Apparels</title>
+</head>
+<body>
+    <h2>apparels</h2><br>
+    <tr><a href="/user/login">My Account</a></tr><br>
+	<a href="/customer/<%= userName %>">Back To Home</a>
+	<br>
+	<a href="/customer/chartList/<%= userName %>">Back To Chart List</a>
+	<br>
+	<%= msg %>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Customer Panel</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <script src="jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Apparels</a>
+    </div>
+    <ul class="nav navbar-nav">
+
+      <li class="active"><a href="/customer/<%= userName %>">Home</a></li>
+
+    </ul>
+	
+  </div>
+</nav>
+
+<div class="container-fluid">
+
+<h2 align="center" class="text-danger">Order History</h2><br>
+
+		<table border="1" class="table">
+		<tr>
+			<th>Order Id</th>
+			<th>Product Name</th>
+			<th>Address</th>
+			<th>Phone</th>
+			<th>Quantity</th>
+			<th>Date</th>
+			<th>Price</th>
+			<th>Status</th>
+		</tr>
+		<% for(var i = 0; i < orderss.length; i++) { %>
+		<tr>
+			<td><%= orderss[i].sku %></td>
+			<td><%= orderss[i].name %></td>
+			<td><%= orderss[i].address %></td>
+			<td><%= orderss[i].phone %></td>
+			<td><%= orderss[i].quantity %></td>
+			<td><%= orderss[i].date %></td>
+			<td><%= orderss[i].price %></td>
+			<td><%= orderss[i].status %></td>
+		</tr>
+		<% } %>
+	</table>
+
+</div>
+
+</body>
+</html>

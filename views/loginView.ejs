@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Login</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/customer">Apparels</a>
+    </div>
+    <ul class="nav navbar-nav">
+
+      <li><a href="/customer">Home</a></li>
+
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+	<h2 align="center">Login</h2>
+
+	<p class="bg-danger"><%= error %></p>
+
+	<div class="form-group">
+
+	<form method="post">
+
+		<label>User Name</label><br>
+		<input type="text" class="form-control" name="uname"><br>
+		
+		<label>Password</label><br>
+		<input type="password" class="form-control" name="upass"><br>
+		
+
+
+                <input type="submit" class="btn btn-success btn-block" value="Login">
+
+	</form>	<br/>
+
+	</div>
+
+	<p> Don't have an account !!! <a href="/register">Register Now</a> </p>
+
+	<script type="text/javascript" src="jquery.js"></script>
+
+</div>
+</body>
+
+</html>

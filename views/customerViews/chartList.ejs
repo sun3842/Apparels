@@ -1,0 +1,97 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<title>Apparels</title>
+</head>
+<body>
+	<table>
+		<tr>
+		<tr><h2>Apparels</h2></tr>
+		<tr><a href="/user/login">My Account</a></tr>
+		<tr><a href="/customer/chartList/<%= customer %>">Chart(<%= chart %>)</a></tr>
+	</table></br>
+	</br>
+	<table border="1">
+		<tr>
+			<th>Product Name</th>
+			<th>Quantity</th>
+			<th>Unit Price</th>
+			<th>Total Price</th>
+			<th>Procced To</th>
+			<th>Update Chart</th>
+			<th>Remove From Chart</th>
+		</tr>
+		<% for(var i = 0; i < chartList.length; i++) { %>
+		<tr>
+			<td><%= chartList[i].productName %></td>
+			<td><%= chartList[i].quantity %></td>
+			<td><%= chartList[i].unitPrice %></td>
+			<td><%= chartList[i].totalPrice %></td>
+			<td><a href="/customer/chartList/<%= customer %>/orderProduct/<%= chartList[i].id %>">Order</a></td>
+			<td><a href="/customer/chartList/<%= customer %>/updateChart/<%= chartList[i].id %>">Update</a></td>
+			<td><a href="/customer/chartList/<%= customer %>/removeChart/<%= chartList[i].id %>">Remove</a></td>
+		</tr>
+		<% } %>
+	</table>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Customer Panel</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <script src="jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Apparels</a>
+    </div>
+    <ul class="nav navbar-nav">
+
+      <li><a href="/customer/<%= customer %>">Home</a></li>
+
+       <li class="active"><a href="/customer/chartList/<%= customer %>">Cart</a></li>
+
+    </ul>
+	
+  </div>
+</nav>
+
+<div class="container-fluid">
+
+<h2 align="center" class="text-danger">Cart History</h2><br>
+
+		<table border="1" class="table">
+		<tr>
+			<th>Product Name</th>
+			<th>Quantity</th>
+			<th>Unit Price</th>
+			<th>Total Price</th>
+			<th>Procced To</th>
+			<th>Update Cart</th>
+			<th>Remove From Cart</th>
+		</tr>
+		<% for(var i = 0; i < chartList.length; i++) { %>
+		<tr>
+			<td><%= chartList[i].productName %></td>
+			<td><%= chartList[i].quantity %></td>
+			<td><%= chartList[i].pricee %></td>
+			<td><%= chartList[i].totalPrice %></td>
+			<td><a href="/customer/chartList/<%= customer %>/orderProduct/<%= chartList[i].id %>">Order</a></td>
+			<td><a href="/customer/chartList/<%= customer %>/updateChart/<%= chartList[i].id %>">Update</a></td>
+			<td><a href="/customer/chartList/<%= customer %>/removeChart/<%= chartList[i].id %>">Remove</a></td>
+		</tr>
+		<% } %>
+	</table>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Admin Panel</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <script src="jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/admin">Admin Panel</a>
+    </div>
+    <ul class="nav navbar-nav">
+
+      <li><a href="/customer">Home</a></li>
+
+      <li><a href="/admin">Admin Home</a></li>
+
+       <li class="active"><a href="/admin/category">Category Panel</a></li>
+
+       <li><a href="/admin/product">Product Panel</a></li>
+
+       <li><a href="/admin/order">Order Panel</a></li>
+
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
+    </ul>
+  </div>
+</nav>
+  
+<div class="container">
+
+ <ul class="list-group">
+  <% errors.forEach(function(err){ %>
+    <li class="list-group-item list-group-item-danger" ><%= err.msg %></li>
+  <% }) %>
+  </ul>
+
+  <div class="form-group">
+
+  <form method="post">
+
+    <label>Category Name</label><br>
+    <input type="text" class="form-control" name="cname"><br>
+
+    <label>Parent</label><br>
+      <select class="form-control" name="parentName">
+                <option value="None">None</option>
+                <% categoryNames.forEach(function(cnames){ %>
+                <option value="<%= cnames.name %>"><%= cnames.name %></option>
+                <% }) %>
+             </select><br>
+
+                <input type="submit" class="btn btn-success btn-block" value="Create">
+  </form> <br/>
+
+  </div>
+
+</div>
+
+</body>
+</html>

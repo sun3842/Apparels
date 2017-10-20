@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Admin Panel</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <script src="jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/admin">Admin Panel</a>
+    </div>
+    <ul class="nav navbar-nav">
+
+      <li><a href="#">Home</a></li>
+
+      <li><a href="/admin">Admin Home</a></li>
+
+       <li><a href="/admin/category">Category Panel</a></li>
+
+       <li><a href="/admin/product">Product Panel</a></li>
+
+       <li class="active" ><a href="/admin/order">Order Panel</a></li>
+
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
+    </ul>
+  </div>
+</nav>
+  
+<div class="container">
+
+ <p><b><%= errors %></b></p>
+
+ <div class="form-group">
+
+<form method='post' encType="multipart/form-data">
+
+    <input type="hidden" name="oId" value="<%= orders.id%>">
+
+    <label>Order Id</label><br>
+    <input type="text" name="osku" class="form-control" value="<%= orders.sku%>" readonly><br>
+
+    <label>Customer Name</label><br>
+    <input type="text" name="oname" class="form-control" value="<%= orders.customer%>" readonly><br>
+
+    <label>Customer Address</label><br>
+    <input type="text" name="oaddress" class="form-control" value="<%= orders.address %>" readonly><br>
+
+    <label>Customer Phone</label><br>
+    <input type="number" name="ophone" class="form-control" value="<%= orders.phone %>" readonly><br>
+
+    <label>Product Name</label><br>
+    <input type="text" name="opname" class="form-control" value="<%= orders.name %>" readonly><br>
+
+    <label>Total Price</label><br>
+    <input type="text" name="otprice" class="form-control" value="<%= orders.pricee %>" readonly><br>
+
+    <label>Order Date</label><br>
+    <input type="text" name="otdate" class="form-control" value="<%= orders.date %>" readonly><br>
+
+    <label>Order Status</label><br>
+      <select class="form-control" name="ostatus">
+                <option value="Pending">Pending</option>
+                <option value="Delivered">Delivered</option>
+                <option value="Cancel">Cancel</option>
+      </select><br>
+
+        <input type='submit' class="btn btn-success btn-block" value='Edit Order' />
+</form><br><br>  
+
+</div>
+
+</div>
+
+</body>
+</html>

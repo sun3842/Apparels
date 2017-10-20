@@ -1,0 +1,136 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<title>Apparels</title>
+</head>
+<body>
+	<table>
+		<tr>
+		<tr><h2>Apparels</h2></tr>
+		<tr>
+		<form method="post">
+				<input type="text" name="searchBox" placeholder="Search" />
+				<input type="submit" value="Search" />
+				
+	</form>
+		</tr>
+		<tr><a href="/user/login">My Account</a></tr>
+		<tr><a href="/customer/chartList/<%= customer %>">Chart(<%= chart %>)</a></tr>
+	</table></br>
+	<table>
+		<tr border="1px">
+			<td><a href="#">Home</a></td>
+			<td><a href="#">Mobile&Tabltes</a></td>
+			<td><a href="#">Electronics</a></td>
+			<td><a href="#">Lyfestule&Entertainment</a></td>
+			<td><a href="#">Cloth</a></td>
+		</tr>
+	</table>
+	</br>
+	<table border="1">
+		<tr>
+		<% for(var i = 0; i < product.length; i++) { %>
+		
+			<td><a href="/customer/productDetails/<%= product[i].name %>"><img src="<%= product[i].image1 %>" width="200" height="140"><br><%= product[i].name %></td>
+			</a>
+		<% } %>
+		</tr>
+	</table>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Apparels Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+  <script type="text/javascript" src="jquery.js"></script>
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+  <style> 
+
+    .navbar {
+      margin-bottom: 50px;
+      border-radius: 0;
+    }
+    
+     .jumbotron {
+      margin-bottom: 0;
+    }
+   
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="jumbotron">
+  <div class="container text-center">
+    <h1>Apparels Store</h1>      
+  </div>
+</div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="/home">Apparels</a>
+    </div>
+   <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+      <% for(var i=0;i < menu.length ; i++ ) { %>
+      <li><a href="/customers/<%= customer %>/<%= menu[i].name %>"><%= menu[i].name %></a></li>
+      <% } %>
+      </ul>
+
+      <form class="navbar-form navbar-left" method="post">
+      <div class="form-group">
+        <input type="text" class="form-control" name="searchBox" placeholder="Search">
+      </div>
+      <button type="submit" class="btn btn-default">Search</button>
+    </form>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/user/login"><span class="glyphicon glyphicon-user"></span>My Account</a></li>
+        <li><a href="/customer/chartList/<%= customer %>"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">    
+  <div class="row">
+
+ <% for(var i = 0; i < product.length; i++) { %>
+
+    <div class="col-sm-4">
+      <div class="panel panel-danger">
+        <div class="panel-heading"><a href="/customer/productDetails/<%= product[i].name %>"><%= product[i].name %></a></div>
+        <div class="panel-body"><a href="/customer/productDetails/<%= product[i].name %>"><img src="<%= product[i].image1 %>" class="img-responsive" style="width:100%"  alt="Image"></a></div>
+        <div class="panel-footer"><a href="/customer/productDetails/<%= product[i].name %>"><%= product[i].description %></a></div>
+      </div>
+    </div>
+
+<% } %>
+
+  </div>
+</div><br><br>
+
+<footer class="container-fluid text-center">
+  <p>Apparels Store Copyright</p>  
+  <form class="form-inline">Get deals:
+    <input type="email" class="form-control" size="50" placeholder="Email Address">
+    <button type="button" class="btn btn-danger" onclick="window.open('/register','_self')">Sign Up</button>
+  </form>
+</footer>
+
+</body>
+</html>
